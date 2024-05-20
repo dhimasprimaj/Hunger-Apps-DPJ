@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 15,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-restricted-globals": [
+            "error",
+            {
+                "name": "event",
+                "message": "Use local parameter instead."
+            },
+            {
+                "name": "fdescribe",
+                "message": "Do not commit fdescribe. Use describe instead."
+            },
+            {
+                "name": "__WB_MANIFEST",
+                "message": "Allowed global."
+            }
+        ]
+    }
+}

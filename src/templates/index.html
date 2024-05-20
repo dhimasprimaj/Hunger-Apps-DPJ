@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunger Apps</title>
+    <meta name="description" content="Temukan restoran favorit Anda di sini! Jelajahi berbagai pilihan restoran terbaik yang telah kami kurasi khusus untuk Anda.">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./images/icon-192x192.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header dan navigasi -->
+    <header>
+        <a href="#maincontent" class="skip-link" tabindex="0">Skip to Content</a>
+        <nav class="navbar">
+            <!-- Navbar akan diisi menggunakan JavaScript -->
+        </nav>
+        
+    </header>
+    <main id="maincontent">
+        <div class="hero">
+            <picture>
+                <source media="(max-width: 600px)" srcset="/images/heros/hero-image_2_small.webp" type="image/webp">
+                <img src="/images/heros/hero-image_2_large.webp"
+                    width="100%"
+                     alt="Hero-Img">
+               </picture>
+               
+        </div>
+        <h2 id="list">Daftar Restoran</h2>
+        <section id="restaurant-list">
+            <!-- Restoran items akan diisi menggunakan JavaScript -->
+        </section>
+      
+       </div>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        document.querySelector('.skip-link').addEventListener('focus', function() {
+            console.log('Skip to Content link is focused');
+        });
+        </script>
+</body>
+</html>

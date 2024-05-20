@@ -1,0 +1,21 @@
+{
+  "short_name": "Happs",
+  "name": "Hunger Apps",
+  "icons": [
+      {
+          "src": "/images/icon-192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+      },
+      {
+          "src": "/images/icon-256x256.png",
+          "type": "image/png",
+          "sizes": "256x256"
+      }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFFFFF"
+}

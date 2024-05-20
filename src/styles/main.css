@@ -1,0 +1,620 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  overflow-x: hidden;
+}
+html{
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.review-user::-webkit-scrollbar,html::-webkit-scrollbar{
+  width: 10px;
+}
+html::-webkit-scrollbar-thumb,.review-user::-webkit-scrollbar-thumb{
+  background-color: #ffd700;
+  border-radius: 20px;
+  height: 10px;
+}
+html::-webkit-scrollbar-track,.review-user::-webkit-scrollbar-track{
+  background: #1B2326;
+  border-radius: 20px;
+}
+
+.skip-link {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  color: white;
+  padding: 15px 15px;
+  font-size: 16px;
+  z-index: 1000000000000;
+  transition: all 0.3s ease;
+}
+
+.skip-link:hover,
+.skip-link:focus {
+  opacity: 1;
+  border: 3px solid white;
+}
+
+nav {
+  display: flex;
+  margin-top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #333;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 700;
+  color: #ffd700;
+  transform: translateY(2px);
+}
+
+.navbar {
+  list-style-type: none;
+  font-size: x-large;
+  font-weight: 700;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffd700;
+  background-color: #333;
+  text-decoration: underline;
+}
+
+.hero img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+}
+
+#list {
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+#restaurant-list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  width: 100%;
+  margin: 0px;
+  border-radius: 5px;
+}
+
+.card:hover .card-img {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  filter: brightness(75%);
+}
+
+.card-img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 2px 16px;
+  position: relative;
+}
+#check{
+  display: none;
+}
+
+.card:focus,
+.card:focus-within {
+  outline: 5px solid #ffd700;
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 10px 0 5px 0;
+}
+
+.card-subtitle,
+.card-rating,
+.card-description {
+  font-size: 1em;
+  overflow: hidden;
+  display: -webkit-box;
+  font-weight: 200;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+@media (min-width: 1200px) {
+  .hero img {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 900px) {
+  #restaurant-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 601px) {
+  .nav-bar {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #navigation-drawer,
+  #drawer-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .skip-link {
+    text-align: center;
+  }
+
+  .card {
+    width: 100%;
+  }
+  
+  #restaurant-list{
+    grid-template-columns: 1fr;
+  }
+  header {
+    background-color: #333;
+    flex-direction: column;
+  }
+  .nav-bar{
+    display: flex;
+    background-color: #333;
+    position: fixed;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    transform: translateY(-32px);
+    top: 0;
+    transition: right 0.3s;
+    right: -100%;
+    z-index: 1000;
+  }
+
+  #drawer-toggle {
+    outline: none;
+}
+  #drawer-toggle {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    font-size: 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 999999999;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    border: none; 
+}
+
+#drawer-toggle:hover, #drawer-toggle:focus {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    outline: 2px solid #d2652d;  
+    
+}
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+
+/* Details Restaurant */
+.content-details{
+  position: absolute;
+  width: 80%;
+  top: 25vh;
+  left: 20px;
+  z-index: 30;
+  color: white;
+}
+.content-details .name{
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+}
+.content-details .addres{
+  color: white;
+  font-size: 30px;
+}
+.hero .img-details{
+  filter: brightness(50%);
+}
+
+.category{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.category p{
+ background: blue;
+ padding: 5px 10px;
+ font-size: 20px;
+ border-radius: 5px;
+}
+.description{
+  padding: 20px;
+  font-size: 27px;
+  font-weight: 100;
+ 
+}
+
+.card-profile .card-profile-container{
+  display: flex;
+  align-items: center;
+  
+  justify-content: start;
+  padding: 20px;
+}
+.profile{
+  width: 50px;
+  border-radius: 50px;
+  height: 50px;
+}
+.card-profile-content{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  gap:0px;
+}
+.review-user{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  gap: 5;
+  align-items: center;
+}
+.review{
+  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  display: grid;
+}
+
+.title-detail-restaurant{
+  font-size:40px;
+  font-weight: bold;
+  color: black;
+  margin-left: 20px;
+}
+.title-form{
+  font-size:30px;
+  color: white;
+  margin-left: 20px;
+}
+.card-review {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  display: inline-block;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 20px;
+  width: 50%;
+  background-color: #333;
+  border-radius: 5px;
+}
+
+.card-review *,
+.card-review *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+
+.card-review h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 10px 0 5px;
+}
+
+.card-review h4 {
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.5;
+}
+
+
+
+.btn-notfavorite{
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #d2652d;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn-favorited{
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  background-color: #d2652d;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn-details, .btn-submit{
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  margin-top: 5px;
+  color: #d2652d;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+}
+.btn-submit:hover, #btn-favorite:hover{
+  background-color: #000;
+  color:white;
+}
+#details-btn{
+  top: 0px;
+  padding: 20px;
+  right: 10px;
+  color: #d2652d;
+  z-index: 40;
+  cursor: pointer;
+  background: #ffffff;
+  position: absolute;
+}
+.card-info{
+  position: relative;
+}
+.btn-details a{
+  color: black;
+  text-decoration: none;
+}
+.menu-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.container-menu{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  outline: 1px solid #fff;
+  background-color: #333;
+}
+.cover-menu{
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+.container-menu:focus .cover-menu,
+.container-menu:focus-within .cover-menu {
+  transform:  translateX(-100%);
+  cursor: pointer;
+}
+.container-menu:hover .cover-menu{
+  transform:  translateX(-100%);
+  cursor: pointer;
+}
+.cover-menu .title-menu{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 70;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+}
+.content-menu{
+  padding-left: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  height: 320px;
+  color: white;
+  font-size:25px;
+}
+.title-menu-inside{
+  padding-left: 20px;
+  color: white;
+}
+.cover-menu img{
+  object-fit: cover;
+  width: 100%;
+  filter: brightness(50%);
+  height: 100%;
+}
+@media (max-width: 600px) {
+  .card-review {
+    width: 100%;
+  }
+  .title-detail-restaurant{
+    font-size:30px;
+  }
+  .title-form{
+    font-size:20px;
+  }
+  .card-review {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    display: inline-block;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 10px;
+    position: relative;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 20px;
+    width: 50%;
+    background-color: #333;
+    border-radius: 5px;
+  }
+  
+  .card-review h3 {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 24px;
+    margin: 10px 0 5px;
+  }
+  .description{
+    font-size: 20px;
+  }
+  .content-details .name{
+    font-size: 50px;
+  }
+  .content-details .addres{
+    font-size: 15px;
+  }
+  .menu-list{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  .container-menu{
+    height: 600px;
+  }
+  .content-menu{
+    height: 550px;
+  }
+  .cover-menu{
+    height: 600px;
+  }
+}
+
+@media (max-width:400px) {
+  .category p{
+    font-size: 15px;
+ 
+   }
+   .btn-notfavorite{
+    font-size: 15px;
+  }
+  .btn-favorited{
+    font-size: 15px;
+  }
+}
+
+
+.container-form{
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+ background-size: cover;
+ background-repeat: none;
+ object-fit: fill;
+ justify-content: center;
+ background-image: url('../public/images/heros/hero-image_2_large.webp');
+ align-items: center;
+ width: 100%;
+}
+.btn-submit{
+  margin-bottom: 10px;
+}
+.container-form input{
+ margin: 20px 20px;
+ height: 40px;
+ max-width: 600px;
+ width: 80%;
+ border-radius: 10px;
+ padding: 5px 10px;
+}
+
+/* Favorite */
+#favorite{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+#favorite{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width:900px) {
+  #favorite{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .review{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width:600px) {
+  #favorite{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.action{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+
